@@ -23,7 +23,7 @@ async function getSportsNarrative() {
         const prompt = `Act as a sports historian. Provide a concise, statistics-focused narrative for: ${matchup}. Focus only on pure history, record-breaking moments, and statistics. Strip away all betting info and commentary fluff.`;
 
         const response = await ai.models.generateContent({
-            model: 'gemini-1.5-flash',
+            model: 'gemini-2.5-flash',
             contents: prompt
         });
 
