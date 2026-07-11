@@ -8,3 +8,13 @@ In a world where sports coverage is increasingly dominated by commercial partner
 Section 2: How It Works
 🏛️ How It Works
 Sporttsotron is a single-page web utility with a simple pipeline:
+[Team Matchup Input]
+         │
+         ▼
+[Gemini API — guided by a specialized system prompt]
+ ──► Standardizes match-up statistics and scores
+ ──► Builds an explicit historical context
+ ──► Isolates record-breaking moments into structured highlights
+         │
+         ▼
+[Optimized Narrative Output] ──► Ready to display the pure story of the game
