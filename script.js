@@ -30,10 +30,22 @@ async function getSportsNarrative() {
             })
         });
 
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error ? errorData.error.message : "Unknown API error");
+        }
+
         const data = await response.json();
         const result = data.candidates[0].content.parts[0].text;
         
         outputArea.innerHTML = `<h3>Matchup Analysis</h3><p>${result}</p>`;
+    } catch (error) {
+        outputArea.innerHTML = `<strong>API Error:</strong> ${error.message}`;
+        console.error("Full Error Details:", error);
+    }
+}
+
+analyzeBtn.addEventListener('click', getSportsNarrative);
     } catch (error) {
         outputArea.innerHTML = "Error: Failed to fetch narrative. Please check your API key.";
         console.error(error);
