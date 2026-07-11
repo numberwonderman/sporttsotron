@@ -1,4 +1,4 @@
-# sporttsotronSection 1: Title and Mission
+# sporttsotron Section 1: Title and Mission
 Sporttsotron 🏆
 Strip away the non-stop noise and betting promotions.
 
