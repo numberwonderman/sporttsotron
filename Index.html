@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sporttsotron | Pure Sports History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Sporttsotron</h1>
+        <p>Strip away the noise. Just the history.</p>
+    </header>
+
+    <main id="app">
+        <section id="api-config">
+            <label for="api-key-input">Enter your Gemini API Key:</label>
+            <input type="password" id="api-key-input" placeholder="Paste your key here">
+            <p><small>
+                Don't have a key? 
+                <a href="https://aistudio.google.com/app/apikey" target="_blank">Get one here from Google AI Studio</a>.
+            </small></p>
+            <p><small><em>Security Note: Your key is stored locally in your browser and never sent to our servers.</em></small></p>
+        </section>
+
+        <section id="input-area">
+            <input type="text" id="matchup-input" placeholder="Enter teams (e.g., Lakers vs. Celtics)">
+            <button id="analyze-btn">Analyze Matchup</button>
+        </section>
+
+        <section id="output-area">
+            </section>
+    </main>
+
+    <footer>
+        <p>Built with Gemini | Open Source (MIT)</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
