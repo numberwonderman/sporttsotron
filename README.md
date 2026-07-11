@@ -18,3 +18,17 @@ Sporttsotron is a single-page web utility with a simple pipeline:
          │
          ▼
 [Optimized Narrative Output] ──► Ready to display the pure story of the game
+
+Section 3: Pillars, Tech Stack, and License
+​✨ Key Pillars
+​LLM-Guided Narratives: A specialized system prompt directs Gemini to synthesize comprehensive scores and statistics, highlighting what truly happened on the field.
+​Record-Breaking Alerts: Special call-outs ensure that any historical feats or record-breaking moments during a game are immediately apparent to the user.
+​Data Visualization: Incorporates visual summaries to present complex statistics and metrics in an easy-to-read, pleasing format.
+​BYOK (Bring Your Own Key): Users supply their own Gemini API key, which is securely stored only in local browser storage and never sent to any third-party servers.
+​🛠️ Tech Stack
+​Front-End: Vanilla JavaScript, HTML5, CSS3
+​AI Backend: Gemini API (gemini-2.5-flash)
+​Deployment: GitHub Pages (fully static, serverless)
+​📄 License
+​MIT License — free to use, modify, and distribute.
+​Developed as an independent research project aimed at making sports history accessible and focused purely on the statistics and the narrative of the game.
