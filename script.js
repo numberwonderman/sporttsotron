@@ -1,4 +1,4 @@
-// script.js
+import { GoogleGenAI } from 'https://esm.run/@google/genai';
 
 const analyzeBtn = document.getElementById('analyze-btn');
 const outputArea = document.getElementById('output-area');
@@ -16,39 +16,21 @@ async function getSportsNarrative() {
 
     outputArea.innerHTML = "Analyzing historical records...";
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-    const prompt = `Act as a sports historian. Provide a concise, statistics-focused narrative for the following matchup: ${matchup}. 
-    Focus only on pure history, record-breaking moments, and relevant statistics. Strip away all betting info, advertisements, and commentary fluff.`;
-
     try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                contents: [{ parts: [{ text: prompt }] }]
-            })
+        // This is the EXACT same setup as your working project
+        const ai = new GoogleGenAI({ apiKey: apiKey });
+        
+        const prompt = `Act as a sports historian. Provide a concise, statistics-focused narrative for: ${matchup}. Focus only on pure history, record-breaking moments, and statistics. Strip away all betting info and commentary fluff.`;
+
+        const response = await ai.models.generateContent({
+            model: 'gemini-1.5-flash',
+            contents: prompt
         });
 
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error ? errorData.error.message : "Unknown API error");
-        }
-
-        const data = await response.json();
-        const result = data.candidates[0].content.parts[0].text;
-        
-        outputArea.innerHTML = `<h3>Matchup Analysis</h3><p>${result}</p>`;
+        outputArea.innerHTML = `<h3>Matchup Analysis</h3><p>${response.text}</p>`;
     } catch (error) {
         outputArea.innerHTML = `<strong>API Error:</strong> ${error.message}`;
         console.error("Full Error Details:", error);
-    }
-}
-
-analyzeBtn.addEventListener('click', getSportsNarrative);
-    } catch (error) {
-        outputArea.innerHTML = "Error: Failed to fetch narrative. Please check your API key.";
-        console.error(error);
     }
 }
 
